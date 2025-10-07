@@ -1,0 +1,104 @@
+// Lista de preguntas
+const questions = [
+    "Si fueras un animal, ¿cuál serías y por qué?",
+    "¿Cuál es la cosa más extraña que tienes en tu cartera o en tus bolsillos ahora mismo?",
+    "Si pudieras viajar en el tiempo, ¿a qué época irías y qué harías?",
+    "¿Qué personaje de película o serie de TV serías en la vida real?",
+    "¿Cuál es el emoji que más usas?",
+    "¿Qué superpoder elegirías y por qué?",
+    "Si tu vida fuera una película, ¿cómo se llamaría?",
+    "¿Qué talento oculto tienes?",
+    "¿Qué crees que es lo más grande que se puede lograr en la vida?",
+    "¿Cuál es un libro o una película que ha cambiado tu forma de pensar?",
+    "¿Qué consejo le darías a tu yo de hace 10 años?",
+    "Si solo pudieras comer una comida por el resto de tu vida, ¿cuál sería?",
+    "¿Qué harías si ganaras la lotería hoy?",
+    "¿Cuál es tu recuerdo más feliz de la infancia?",
+    "¿Qué es algo que todo el mundo debería experimentar al menos una vez en la vida?",
+    "¿Qué es lo más valioso que has aprendido de un fracaso?",
+    "Canta tu canción favorita a capella durante 10 segundos.",
+    "Imita a una persona famosa. El resto debe adivinar quién es.",
+    "¿Cuál es la cosa más vergonzosa que te ha pasado en una cita?",
+    "Describe a tu 'crush' ideal sin decir nombres ni profesiones.",
+    "¿Alguna vez has mentido para salir de un problema? ¿Qué pasó?",
+    "Cuenta una anécdota que nadie aquí conozca sobre ti.",
+    "Nombra un hábito extraño que tengas.",
+    "Haz una pose de superhéroe y grita tu grito de batalla.",
+    "¿Cuál es la mentira más loca que has dicho para salirte con la tuya?",
+    "¿Quién fue tu último crush secreto? 😏",
+    "¿Cuál es tu peor cita de la vida?",
+    "¿Has espiado las redes sociales de tu ex?",
+    "¿Cuál es la excusa más ridícula que has usado para no ir a la escuela/trabajo?",
+    "¿Has enviado un mensaje vergonzoso por accidente?",
+    "¿Quién de aquí sería el peor compañero de cuarto y por qué?",
+    "¿Has tenido un sueño raro con alguien de este grupo?",
+    "¿Qué es lo más vergonzoso que te ha pasado en una fiesta? 🎉",
+    "¿Cuál fue tu primer crush famoso?",
+    "Dale un piropo exagerado a la persona a tu izquierda.",
+    "Baila como si estuvieras en un videoclip por 30 segundos. 💃",
+    "Haz tu mejor cara sexy y mantenla 10 segundos.",
+    "Imita a alguien de este grupo hasta que adivinen quién es.",
+    "Lee el último mensaje que enviaste en tu celular (si no es muy personal).",
+    "Canta una canción dramáticamente como si estuvieras en una telenovela. 🎤",
+    "Haz 10 sentadillas mientras miras a alguien intensamente.",
+    "Deja que alguien del grupo te haga una pregunta extra y respóndela sin excusas.",
+    "Dale un abrazo largo (mínimo 15 segundos) a la persona que el grupo elija.",
+    "Haz una confesión inesperada sobre tu vida amorosa. ❤️"
+];
+
+// Elementos HTML
+constquestionTextElement = document.getElementById('question-text');
+constnextQuestionBtn = document.getElementById('next-question-btn');
+constquestionBox = document.getElementById("question-box");
+constparticleContainer = document.querySelector(".particle-container");
+
+// Evento para el botón
+nextQuestionBtn.addEventListener('click', () => {
+    constrandomIndex = Math.floor(Math.random() * questions.length);
+    constrandomQuestion = questions[randomIndex];
+
+    constcolors = ["border-neon-pink', 'border-neon-blue', 'border-neon-green', 'border-neon-yellow', 'border-neon-purple"];
+    constrandomColor = colors[Math.floor(Math.random() * colors.length)];
+    
+    colors.forEach(c => questionBox.classList.remove(c));
+    questionBox.classList.add(randomColor);
+
+    questionTextElement.classList.remove('animate-pop-in');
+    void questionTextElement.offsetWidth;
+    questionTextElement.classList.add('animate-pop-in');
+
+    questionTextElement.textContent = randomQuestion;
+
+    questionBox.classList.add('animate-pulse');
+    setTimeout(() => questionBox.classList.remove('animate-pulse'), 500);
+});
+
+// --- Animación de partículas ---
+const particleColors = ['#ff69b4', '#4dc2ff', '#51ff00', '#ffea00', '#9d00ff'];
+
+function createParticle() {
+    const particle = document.createElement('div');
+    particle.className = 'particle';
+
+    const size = Math.random() * 8 + 4;
+    particle.style.width = `${size}px`;
+    particle.style.height = `${size}px`;
+
+    const left = Math.random() * 100;
+    particle.style.left = `${left}vw`;
+
+    const duration = Math.random() * 5 + 5;
+    particle.style.animationDuration = `${duration}s`;
+
+    const delay = Math.random() * 2;
+    particle.style.animationDelay = `${delay}s`;
+
+    const color = particleColors[Math.floor(Math.random() * particleColors.length)];
+    particle.style.backgroundColor = color;
+
+    particleContainer.appendChild(particle);
+
+    setTimeout(() => particle.remove(), duration * 1000);
+}
+
+setInterval(createParticle, 300);

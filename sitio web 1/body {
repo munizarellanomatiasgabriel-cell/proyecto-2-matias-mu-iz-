@@ -1,0 +1,109 @@
+body {
+    font-family: 'Fredoka', sans-serif;
+    overflow: hidden;
+}
+
+/* Colores neón */
+.color-primary { color: #f9f871; }
+.color-secondary { color: #b7a9ff; }
+.bg-color-primary { background-color: #f9f871; }
+.bg-color-secondary { background-color: #b7a9ff; }
+
+.text-neon-pink { color: #ff69b4; }
+.border-neon-pink { border-color: #ff69b4; }
+.text-neon-blue { color: #4dc2ff; }
+.border-neon-blue { border-color: #4dc2ff; }
+.text-neon-green { color: #51ff00; }
+.border-neon-green { border-color: #51ff00; }
+.text-neon-yellow { color: #ffea00; }
+.border-neon-yellow { border-color: #ffea00; }
+.text-neon-purple { color: #9d00ff; }
+.border-neon-purple { border-color: #9d00ff; }
+
+/* Animaciones */
+@keyframes pulse-slow {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+}
+.animate-pulse-slow {
+    animation: pulse-slow 3s ease-in-out infinite;
+}
+
+@keyframes bounce-short {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+.animate-bounce-short {
+    animation: bounce-short 1s ease-in-out infinite;
+}
+
+/* Fondo de partículas */
+.particle-container {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.particle {
+    position: absolute;
+    bottom: -20px;
+    border-radius: 50%;
+    background-color: white;
+    animation: floatUp 8s ease-out infinite;
+    opacity: 0;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(0);
+        opacity: 0.5;
+    }
+    100% {
+        transform: translateY(-100vh);
+        opacity: 0;
+    }
+}
+
+/* Borde animado */
+.animated-border-wrapper {
+    position: relative;
+    padding: 4px;
+    border-radius: 2rem;
+    background: linear-gradient(45deg, #ff69b4, #4dc2ff, #51ff00, #ffea00, #9d00ff);
+    background-size: 300% 300%;
+    animation: spin-border 8s linear infinite;
+}
+
+.animated-border-inner {
+    background-color: #111827;
+    border-radius: 2rem;
+}
+
+@keyframes spin-border {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Animaciones de texto */
+@keyframes bounce-in {
+    0% { transform: scale(0.5); opacity: 0; }
+    50% { transform: scale(1.1); opacity: 1; }
+    100% { transform: scale(1); }
+}
+.title-bounce {
+    animation: bounce-in 1s ease-out forwards;
+}
+
+@keyframes pop-in {
+    0% { transform: scale(0.8) translateY(10px); opacity: 0; }
+    100% { transform: scale(1) translateY(0); opacity: 1; }
+}
+.animate-pop-in {
+    animation: pop-in 0.3s ease-out;
+}

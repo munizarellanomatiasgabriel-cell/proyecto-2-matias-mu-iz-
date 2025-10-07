@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Fiesta de Preguntas!</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Archivo de estilos externo -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="bg-black text-white min-h-screen flex items-center justify-center p-4">
+
+    <!-- Fondo de partículas -->
+    <div class="particle-container"></div>
+
+    <!-- Contenedor principal -->
+    <div class="w-full max-w-2xl rounded-3xl shadow-lg animate-pulse-slow z-10 animated-border-wrapper">
+        <div class="p-6 sm:p-10 flex flex-col items-center justify-center text-center animated-border-inner">
+
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-fuchsia-500 mb-4 sm:mb-6 leading-tight title-bounce">
+                ¡Fiesta de Preguntas!
+            </h1>
+
+            <p class="text-lg sm:text-xl text-color-primary mb-8 animate-bounce-short">
+                Presiona el botón para descubrir tu pregunta
+            </p>
+
+            <div id="question-box" class="w-full min-h-[150px] sm:min-h-[200px] bg-gray-800 rounded-2xl p-6 sm:p-8 flex items-center justify-center mb-8 border-4 border-neon-blue transition-all duration-300 shadow-xl hover:shadow-2xl hover:border-neon-green">
+                <p id="question-text" class="text-2xl sm:text-3xl text-white font-bold italic">
+                    La pregunta aparecerá aquí
+                </p>
+            </div>
+
+            <button id="next-question-btn" class="bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500 transition-all duration-300 text-gray-900 font-extrabold text-xl sm:text-2xl py-4 px-8 rounded-full shadow-lg transform active:scale-95 focus:outline-none focus:ring-4 focus:ring-purple-500 focus:ring-opacity-50">
+                Nueva Pregunta ✨
+            </button>
+
+        </div>
+    </div>
+
+    <!-- Archivo JavaScript externo -->
+    <script src="script.js"></script>
+</body>
+</html>
